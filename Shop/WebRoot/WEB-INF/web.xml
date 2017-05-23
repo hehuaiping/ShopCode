@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Shop</display-name>
+  <!-- 初始化参数配置 -->
+  <context-param>
+  	<param-name>encode</param-name>
+  	<param-value>utf-8</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>decode</param-name>
+  	<param-value>utf-8</param-value>
+  </context-param>
+  <!-- 初始化参数结束 -->
+<!-- 全站乱码过滤器配置开始 -->  
+  <filter>
+  	<filter-name>EncodeFilter</filter-name>
+  	<filter-class>com.xh.web.filter.EncodeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>EncodeFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+<!-- 全站乱码过滤器配置结束 -->
+<!-- 自动登录过滤器配置开始 -->
+	<filter>
+		<filter-name>AutoLoginFilter</filter-name>
+		<filter-class>com.xh.web.filter.AutoLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AutoLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!-- 自动登录过滤器配置结束 -->
+<!-- 权限过滤器配置开始 -->
+	<filter>
+		<filter-name>PowerFilter</filter-name>
+		<filter-class>com.xh.web.filter.PowerFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PowerFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+<!-- 权限过滤器配置结束 -->
+<!-- 监听器配置开始 -->
+<listener>
+	<listener-class>com.xh.listener.MySessionListener</listener-class>
+</listener>
+
+<!-- 监听器配置结束 -->
+  <servlet>
+    <servlet-name>RegisServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.RegisServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginOutServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.LoginOutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VerifiServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.VerifiServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ActiveUser</servlet-name>
+    <servlet-class>com.xh.web.servlet.ActiveUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.ProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BasicServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.BasicServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddCartServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.AddCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.CartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CallbackServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.CallbackServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.AdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.AdminProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminUpdateProductServlet</servlet-name>
+    <servlet-class>com.xh.web.servlet.AdminUpdateProductServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>RegisServlet</servlet-name>
+    <url-pattern>/servlet/RegisServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginOutServlet</servlet-name>
+    <url-pattern>/servlet/LoginOutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VerifiServlet</servlet-name>
+    <url-pattern>/servlet/VerifiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActiveUser</servlet-name>
+    <url-pattern>/servlet/ActiveUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/servlet/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductServlet</servlet-name>
+    <url-pattern>/ProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BasicServlet</servlet-name>
+    <url-pattern>/BasicServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCartServlet</servlet-name>
+    <url-pattern>/AddCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/CartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CallbackServlet</servlet-name>
+    <url-pattern>/CallbackServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <url-pattern>/AdminProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminUpdateProductServlet</servlet-name>
+    <url-pattern>/AdminUpdateProductServlet</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
